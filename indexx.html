@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>For Deska Julia</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #09090b;
+      color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* BACKGROUND */
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 80, 130, 0.12), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(120, 80, 255, 0.10), transparent 30%),
+        #09090b;
+    }
+
+    /* OPENING */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .small {
+      color: #888;
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(55px, 12vw, 140px);
+      line-height: 0.9;
+      letter-spacing: -6px;
+      font-weight: 700;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #fff, #ff6b9d);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      margin-top: 30px;
+      color: #aaa;
+      font-size: 18px;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    button {
+      margin-top: 40px;
+      width: fit-content;
+      padding: 15px 25px;
+      border: 1px solid #444;
+      border-radius: 100px;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: white;
+      color: black;
+      transform: translateY(-3px);
+    }
+
+    /* CONTENT */
+    section {
+      min-height: 100vh;
+      padding: 120px 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .number {
+      color: #ff6b9d;
+      font-size: 13px;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: clamp(40px, 7vw, 80px);
+      margin-bottom: 35px;
+      letter-spacing: -3px;
+    }
+
+    .text {
+      max-width: 650px;
+      color: #aaa;
+      font-size: 20px;
+      line-height: 1.8;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 50px;
+    }
+
+    .card {
+      min-height: 180px;
+      padding: 25px;
+      border: 1px solid #222;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #555;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .card span {
+      color: #666;
+      font-size: 12px;
+    }
+
+    .card p {
+      margin-top: 25px;
+      color: #ddd;
+      line-height: 1.6;
+    }
+
+    /* TERMINAL */
+    .terminal {
+      margin-top: 50px;
+      background: #050505;
+      border: 1px solid #222;
+      border-radius: 15px;
+      padding: 25px;
+      font-family: monospace;
+      color: #bbb;
+      line-height: 2;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .pink {
+      color: #ff6b9d;
+    }
+
+    .green {
+      color: #8affc1;
+    }
+
+    /* FINAL */
+    .final {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .final h2 {
+      max-width: 800px;
+    }
+
+    .signature {
+      margin-top: 60px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* FADE ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 1s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .hero,
+      section {
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .text {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- OPENING -->
+<div class="hero">
+  <div class="small">01 / something I made</div>
+
+  <h1>
+    DESKA<br>
+    <span class="gradient">JULIA.</span>
+  </h1>
+
+  <p class="subtitle">
+    Bukan website biasa.<br>
+    Cuma sebuah tempat kecil untuk menyimpan
+    beberapa hal yang mungkin ingin kamu tahu.
+  </p>
+
+  <button onclick="scrollToStory()">enter →</button>
+</div>
+
+
+<!-- STORY -->
+<section class="reveal">
+  <div class="number">02 / WHY YOU</div>
+
+  <h2>Kenapa kamu?</h2>
+
+  <p class="text">
+    Aku sebenarnya nggak tahu kapan tepatnya semuanya berubah.
+    Tapi dari sekian banyak orang yang pernah aku temui,
+    entah kenapa kamu punya tempat yang berbeda.
+  </p>
+</section>
+
+
+<!-- MEMORIES -->
+<section class="reveal">
+  <div class="number">03 / LITTLE THINGS</div>
+
+  <h2>Hal-hal kecil.</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <span>01</span>
+      <p>
+        Cara kamu ngobrol yang kadang bikin aku senyum sendiri.
+      </p>
+    </div>
+
+    <div class="card">
+      <span>02</span>
+      <p>
+        Hal-hal kecil tentang kamu yang mungkin kamu anggap biasa.
+      </p>
+    </div>
+
+    <div class="card">
+      <span>03</span>
+      <p>
+        Dan tentu saja, alasan kenapa aku memilih membuat
+        website ini untuk kamu.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TERMINAL -->
+<section class="reveal">
+  <div class="number">04 / SYSTEM</div>
+
+  <h2>Let's run it.</h2>
+
+  <div class="terminal">
+    <div>&gt; initializing...</div>
+    <div>&gt; searching memories...</div>
+    <div>&gt; memories found: <span class="green">∞</span></div>
+    <div>&gt; searching favorite person...</div>
+    <div>&gt; result: <span class="pink">Deska Julia</span></div>
+    <div>&gt; status: <span class="green">irreplaceable</span></div>
+  </div>
+</section>
+
+
+<!-- FINAL -->
+<section class="final reveal">
+
+  <div class="number">05 / ONE LAST THING</div>
+
+  <h2>
+    Dari semua hal yang bisa aku buat,
+    aku memilih membuat ini untuk kamu.
+  </h2>
+
+  <p class="text">
+    Mungkin sederhana.
+    Tapi setiap bagian di sini dibuat dengan satu nama
+    yang sama di pikiran aku.
+  </p>
+
+  <div class="signature">
+    made for Deska Julia.
+  </div>
+
+</section>
+
+
+<script>
+
+  function scrollToStory() {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth"
+    });
+  }
+
+  const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+
+    });
+
+  }, {
+    threshold: 0.15
+  });
+
+  reveals.forEach(element => {
+    observer.observe(element);
+  });
+
+</script>
+
+</body>
+</html>
